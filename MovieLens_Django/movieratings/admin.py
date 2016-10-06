@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from movie_ratings.models import Item, Rater, Data
+from movieratings.models import Item, Rater, Data
 
 
 admin.site.register(Item)
