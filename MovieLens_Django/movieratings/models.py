@@ -35,7 +35,7 @@ class Item(models.Model):
     def get_average_rating(self):
         movies = Item.objects.all()
         for movie in movies:
-            print("{}:{}".format(movie.title, Data.objects.filter(item_id=movie).aggregate(Avg('rating'))))
+            return "{}:{}".format(movie.title, Data.objects.filter(item_id=movie).aggregate(Avg('rating')))
 
 
 class Rater(models.Model):
