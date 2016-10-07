@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.db.models import Avg
+
 
 class Item(models.Model):
 
@@ -29,6 +31,11 @@ class Item(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_average_rating(self):
+        movies = Item.objects.all()
+        for movie in movies:
+            print("{}:{}".format(movie.title, Data.objects.filter(item_id=movie).aggregate(Avg('rating'))))
 
 
 class Rater(models.Model):
