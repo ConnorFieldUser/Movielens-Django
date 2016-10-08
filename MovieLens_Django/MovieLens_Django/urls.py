@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from movieratings.views import index_view
+
+from movieratings.views import index_view, top_20_view, all_movies_view, raters_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index_view)
+    url(r'^$', index_view),
+    url(r'^top_20/', top_20_view),
+    url(r'^all_movies/', all_movies_view),
+    url(r'^raters_profile_/', raters_view)
 ]

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Top 20 Movies:</h1>
+    <p>
+      !!!!!!Work in progress!!!!!!
+    </p>
+
+    {%for row in all_movies%}
+    <p>
+      {{ row.get_average_rating }}
+    </p>
+
+    {% endfor %}
+
+    <div style="position: relative; width: 600px; height: 800px;">
+
+  <div style="position: absolute; bottom: 5px;">
+  Serious Businessmen (C) 2010
+  </div>
+</div>
+  </body>
+</html>

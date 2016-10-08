@@ -32,10 +32,10 @@ class Item(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def get_average_rating(self):
-        movies = Item.objects.all()
-        for movie in movies:
-            return "{}:{}".format(movie.title, Data.objects.filter(item_id=movie).aggregate(Avg('rating')))
+        return "{}  Average Rating: {}".format(self.title, round(Data.objects.filter(item_id=self).aggregate(Avg(
+                                                'rating')).get('rating__avg'), 2))
 
 
 class Rater(models.Model):

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>all_movies_list</title>
+  </head>
+  <body>
+      <h1>
+        Movies
+      </h1>
+    <h4>
+      All the movies in our database, listed right here for your convience.<br>
+      Just keep scrolling until you find what you are looking for! (Or use find: Command F)
+    </h4>
+
+    {%for row in all_movies%}
+    <p>
+      {{ row.get_average_rating }}
+    </p>
+
+    {% endfor %}
+
+
+    <div style="position: relative; width: 600px; height: 800px;">
+
+  <div style="position: absolute; bottom: 5px;">
+  Serious Businessmen (C) 2010
+  </div>
+</div>
+  </body>
+</html>
