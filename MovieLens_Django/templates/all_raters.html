@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Raters</title>
+  </head>
+  <body>
+    <h1>Reviewers</h1>
+    <h3>All reviewers in the database</h3>
+
+
+    {%for row in all_raters%}
+      <p style="color:blue"=>
+        <a href="#">Reviewer: {{ row }}</a>
+      </p>
+    {% endfor %}
+
+
+    <div style="position: relative; width: 600px; height: 800px;">
+
+  <div style="position: absolute; bottom: 5px;">
+  Serious Businessmen (C) 2010
+  </div>
+</div>
+
+  </body>
+</html>

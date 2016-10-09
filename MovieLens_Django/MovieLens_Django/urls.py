@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from movieratings.views import index_view, top_20_view, all_movies_view, raters_view
+from movieratings.views import movie_page_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index_view),
     url(r'^top_20/', top_20_view),
     url(r'^all_movies/', all_movies_view),
-    url(r'^raters_profile_/', raters_view)
+    url(r'^movie_page/(?P<item_id>\d+)/$', movie_page_view),
+    url(r'^all_raters/', raters_view)
 ]

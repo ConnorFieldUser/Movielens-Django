@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>all_movies_list</title>
   </head>
-  <body>
+  <body style="background-color: silver">
       <h1>
         Movies
       </h1>
@@ -14,12 +14,15 @@
     </h4>
 
     {%for row in all_movies%}
-    <p>
-      {{ row.get_average_rating }}
-    </p>
+      <p style="color:blue"=>
+        <a href="/movie_page/{{ row.id }}">{{ row }}</a>
+          <br>
+          {{ row.get_average_rating }}
+        <p>
 
+        </p>
+      </p>
     {% endfor %}
-
 
     <div style="position: relative; width: 600px; height: 800px;">
 

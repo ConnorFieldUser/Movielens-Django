@@ -34,7 +34,7 @@ class Item(models.Model):
 
     @property
     def get_average_rating(self):
-        return "{}  Average Rating: {}".format(self.title, round(Data.objects.filter(item_id=self).aggregate(Avg(
+        return "Average Rating: {}".format(round(Data.objects.filter(item_id=self).aggregate(Avg(
                                                 'rating')).get('rating__avg'), 2))
 
 
@@ -44,6 +44,9 @@ class Rater(models.Model):
     gender = models.CharField(max_length=1)
     occupation = models.CharField(max_length=20)
     zip_code = models.CharField(max_length=6)
+
+    def __str__(self):
+        return str(self.id)
 
 
 class Data(models.Model):
