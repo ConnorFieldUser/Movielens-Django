@@ -55,3 +55,7 @@ class Data(models.Model):
     item_id = models.ForeignKey(Item)
     rating = models.IntegerField()
     timestamp = models.CharField(max_length=9)
+
+    @property
+    def all_raters_for_movie(self):
+        return Data.objects.filter(rater_id=self)

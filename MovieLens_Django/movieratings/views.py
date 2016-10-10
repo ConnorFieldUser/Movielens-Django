@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 
-from movieratings.models import Item, Rater
+from movieratings.models import Item, Rater, Data
 
 # Create your views here.
 
@@ -14,7 +14,8 @@ def index_view(request):
 
 def top_20_view(request):
     context = {
-        "all_movies": Item.objects.all()
+        "all_movies": Item.objects.all()[:20],
+        "try_this_range_20": range(20)
     }
     return render(request, 'top_20.html', context)
 
@@ -26,9 +27,11 @@ def all_movies_view(request):
     return render(request, 'all_movies.html', context)
 
 
-def movie_page_view(request, item_id):
-    context = {
-        "movie": Item.objects.get(id=item_id)
+def movie_page_view(request, item_id, rater_id):
+    context = {  # possibly deceptive var names here
+        "title_finder": Item.objects.all(),
+        "movie": Item.objects.get(id=item_id),
+        "do_it": Data.all_raters_for_movie(id=rater_id)
     }
     return render(request, 'movie_page.html', context)
 
@@ -38,3 +41,10 @@ def raters_view(request):
         "all_raters": Rater.objects.all()
     }
     return render(request, 'all_raters.html', context)
+
+
+def rater_page_view(request, rater_id):
+    context = {
+     "rater": Rater.objects.get(id=rater_id)
+    }
+    return render(request, 'rater_page.html', context)

@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body style="background-color:silver">
     <h1>Top 20 Movies:</h1>
-    <p>
-      !!!!!!Work in progress!!!!!!
-    </p>
+    <h4>
+      The top 20 movies in our database!
+    </h4>
 
     {%for row in all_movies%}
     <p>
-      <a href="#">{{ row.get_average_rating }}</a>
+      <a href="/movie_page/{{ row.id }}">{{ row }}</a>
+      <br>{{ row.get_average_rating }}
     </p>
 
     {% endfor %}
 
-    <div style="position: relative; width: 600px; height: 400px;">
+    <div style="position: relative; width: 300px; height: 200px;">
 
   <div style="position: absolute; bottom: 5px;">
   Serious Businessmen (C) 2010
