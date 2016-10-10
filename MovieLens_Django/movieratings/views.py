@@ -14,8 +14,7 @@ def index_view(request):
 
 def top_20_view(request):
     context = {
-        "all_movies": Item.objects.all()[:20],
-        "try_this_range_20": range(20)
+        "all_movies": Item.objects.all()[:20]
     }
     return render(request, 'top_20.html', context)
 
@@ -30,7 +29,8 @@ def all_movies_view(request):
 def movie_page_view(request, item_id):
     context = {  # possibly deceptive var names here
         "title_finder": Item.objects.all(),
-        "movie": Item.objects.get(id=item_id)
+        "movie": Item.objects.get(id=item_id),
+        "all_of_raters": Rater.objects.all()
     }
     return render(request, 'movie_page.html', context)
 
