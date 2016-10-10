@@ -31,11 +31,10 @@ def add_my_files(apps, schema_editor):
                                 thriller=row["thriller"], war=row["war"], western=row["western"])
 
     with open('rater.csv') as infile:
-        reader = csv.DictReader(infile, delimiter='|', fieldnames=["id", "age", "gender", "occupation",
-                                "zip_code"])
+        reader = csv.DictReader(infile, delimiter='|', fieldnames=["id", "age", "gender", "occupation", "zip_code"])
         for row in reader:
             Rater.objects.create(age=row["age"], gender=row["gender"],
-                                 occupation=row["occupation"], zip_code=["zip_code"])
+                                 occupation=row["occupation"], zip_code=row["zip_code"])
 
     with open('data.csv', encoding='latin1') as infile:
         reader = csv.DictReader(infile, delimiter='\t', fieldnames=["rater_id", "item_id", "rating", "timestamp"])

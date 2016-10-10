@@ -3,26 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>MoviePage</title>
-    <h1>
+    <h1 style="color: blue">
       {{ movie.title }}
     </h1>
 
   </head>
-  <body style="background-color:silver">
+  <body style="background-color:silver; font-family: sans-serif">
 
-    <p style="text-decoration: underline">
-      {{ movie.get_average_rating }}
-    </p>
+    <h2 style="text-decoration: underline">
+      <a href="#">{{ movie.get_average_rating }}</a>
 
-
-    <p>
-      <a href="#">List of ratings</a>
-    </p>
+    </h2>
 
 
-    <p>{% for i in all_of_raters %}
+    <h3>
+      List of ratings:
+    </h3>
+
+
+    <p>{% for rating in ratings %}
       <p>
-        test
+        <a href="{% url 'rater_view' rating.rater_id %}">{{ rating }}</a>
+
       <!-- {{  movie.all_raters_for_movie }} -->
       </p>
       {% endfor %}

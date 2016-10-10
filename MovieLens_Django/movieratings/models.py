@@ -51,6 +51,12 @@ class Rater(models.Model):
     occupation = models.CharField(max_length=20)
     zip_code = models.CharField(max_length=6)
 
+    def gender_as_string(self):
+        if self.gender == "M":
+            return "Male"
+        elif self.gender == "F":
+            return "Female"
+
     def __str__(self):
         return str(self.id)
 
@@ -63,4 +69,4 @@ class Data(models.Model):
     timestamp = models.CharField(max_length=9)
 
     def __str__(self):
-        return "Review serial: {}{}".format(self.rater_id, self.item_id)
+        return "Reviewer id:{}  -->  rating:{}".format(self.rater_id, (self.rating * "*"))
