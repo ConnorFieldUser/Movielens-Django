@@ -20,21 +20,14 @@
     </p>
 
 
-    <p>{{%for row in all_of_raters%}}
+    <p>{% for i in all_of_raters %}
       <p>
         test
       <!-- {{  movie.all_raters_for_movie }} -->
       </p>
-      {{% endfor %}}
+      {% endfor %}
     </p>
 
-      <p>
-        {{%for row in all_raters%}}
-          <p style="color:blue"=>
-            <a href="/rater_page/{{ row.id }}">Reviewer:{{ row }}</a>
-          </p>
-        {{% endfor %}}
-      </p>
 
 
     <div style="position: relative; width: 600px; height: 800px;">
