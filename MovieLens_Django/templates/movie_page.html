@@ -19,9 +19,22 @@
       <a href="#">List of ratings</a>
     </p>
 
-    <p>
-      {{ do_it }}
+
+    <p>{{% for i in movie.all_raters_for_movie %}}
+      <p>
+        {{ i }}
+      <!-- {{  movie.all_raters_for_movie }} -->
+      </p>
+      {{% endfor %}}
     </p>
+
+      <p>
+        {{%for row in all_raters%}}
+          <p style="color:blue"=>
+            <a href="/rater_page/{{ row.id }}">Reviewer:{{ row }}</a>
+          </p>
+        {{% endfor %}}
+      </p>
 
 
     <div style="position: relative; width: 600px; height: 800px;">

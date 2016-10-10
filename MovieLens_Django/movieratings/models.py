@@ -37,6 +37,12 @@ class Item(models.Model):
         return "Average Rating: {}".format(round(Data.objects.filter(item_id=self).aggregate(Avg(
                                                 'rating')).get('rating__avg'), 2))
 
+    @property
+    def all_raters_for_movie(self):
+        return Data.objects.filter(item_id=self)
+
+    # Data.objects.filter(item_id=self)
+
 
 class Rater(models.Model):
 
@@ -56,6 +62,5 @@ class Data(models.Model):
     rating = models.IntegerField()
     timestamp = models.CharField(max_length=9)
 
-    @property
-    def all_raters_for_movie(self):
-        return Data.objects.filter(rater_id=self)
+    def __str__(self):
+        return "Review serial: {}{}".format(self.rater_id, self.item_id)
