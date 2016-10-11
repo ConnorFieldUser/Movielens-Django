@@ -47,7 +47,7 @@ def raters_view(request):
 
 def rater_page_view(request, rater_id):
     context = {
-     "rater": Rater.objects.get(id=rater_id),
-     "ratings": Data.objects.filter(rater_id=rater_id)
+        "rater": Rater.objects.get(id=rater_id),
+        # "ratings": Data.objects.filter(rater_id=rater_id)
     }
     return render(request, 'rater_page.html', context)

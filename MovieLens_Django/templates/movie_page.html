@@ -23,9 +23,8 @@
 
     <p>{% for rating in ratings %}
       <p>
-        <a href="{% url 'rater_view' rating.rater_id %}">{{ rating }}</a>
+        <a href="{% url 'rater_page_view' rating.rater_id %}">{{ rating }}</a>
 
-      <!-- {{  movie.all_raters_for_movie }} -->
       </p>
       {% endfor %}
     </p>

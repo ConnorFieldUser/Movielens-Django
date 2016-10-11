@@ -11,7 +11,7 @@
 
     {%for row in all_raters%}
       <p style="color:blue"=>
-        <a href="/rater_page/{{ row.id }}">Reviewer:{{ row }}</a>
+        <a href="{% 'rater_page_view' row.id %}">Reviewer:{{ row }}</a>
       </p>
     {% endfor %}
 
