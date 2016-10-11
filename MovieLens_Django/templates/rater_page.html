@@ -15,10 +15,26 @@
     </p>
 
     <p>
-    Occupation: {{ rater.occupation }}
+      Occupation: {{ rater.occupation }}
     </p>
 
-    Zip code: {{ rater.zip_code }}
+    <p>
+      Zip code: {{ rater.zip_code }}
+    </p>
+
+
+    <h3>
+      List of ratings by this reviewer:
+    </h3>
+    <p>
+      {% for rating in ratings %}
+    <p>
+    <a href="{% url 'rater_view' rater.rater_id %}">{{ rating }}</a>
+    </p>
+      {% endfor %}
+    </p>
+
+
 
   </body>
 </html>

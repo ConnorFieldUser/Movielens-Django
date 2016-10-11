@@ -52,5 +52,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(add_my_files)
+        # migrations.RunPython(add_my_files)
     ]
