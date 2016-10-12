@@ -38,16 +38,16 @@ def movie_page_view(request, item_id):
     return render(request, 'movie_page.html', context)
 
 
+def rater_page_view(request, rater_id):
+    context = {
+        "rater": Rater.objects.get(id=rater_id),
+        "ratings": Data.objects.filter(rater_id=rater_id)
+    }
+    return render(request, 'rater_page.html', context)
+
+
 def raters_view(request):
     context = {
         "all_raters": Rater.objects.all()
     }
     return render(request, 'all_raters.html', context)
-
-
-def rater_page_view(request, rater_id):
-    context = {
-        "rater": Rater.objects.get(id=rater_id),
-        # "ratings": Data.objects.filter(rater_id=rater_id)
-    }
-    return render(request, 'rater_page.html', context)

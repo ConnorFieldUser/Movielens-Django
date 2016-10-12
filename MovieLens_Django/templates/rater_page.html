@@ -20,22 +20,20 @@
 
     <p>
       Zip code: {{ rater.zip_code }}
-    </p> -->
+    </p>
 
 
-
-
-
-    <!-- <h3>
+    <h3>
       List of ratings by this reviewer:
     </h3>
     <p>
       {% for rating in ratings %}
     <p>
-    <a href="{% url 'rater_view' rater.rater_id %}">{{ rating }}</a>
+    <a href="/movie_page/{{ rating.item_id.id }}">{{ rating.item_id.title }}</a><br>
+    Rated: {{ rating }}
     </p>
       {% endfor %}
-    </p> -->
+    </p>
 
 
 

@@ -23,7 +23,7 @@
 
     <p>{% for rating in ratings %}
       <p>
-        <a href="{% url 'rater_page_view' rating.rater_id %}">{{ rating }}</a>
+        <a href="/rater_page/{{ rating.rater_id.id }}">{{ rating }}</a>
 
       </p>
       {% endfor %}
